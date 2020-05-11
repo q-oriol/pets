@@ -41,7 +41,6 @@ paths:
               example:
                 code: 400 
                 message: Unexpected error
-        
 components:
   schemas:
     Pet:
