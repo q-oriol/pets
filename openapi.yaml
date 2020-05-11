@@ -23,7 +23,7 @@ paths:
               name: Mr. Whiskers
       responses:
         '200':
-          description: 2- success
+          description: Success
           content:
             application/json:
               schema:
@@ -32,8 +32,8 @@ paths:
                 id: 1
                 animal_type: cat
                 name: Mr. Whiskers
-        '400':
-          description: 1- Unexpected error
+        default:
+          description: Unexpected error
           content:
             application/json:
               schema:
