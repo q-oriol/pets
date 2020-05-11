@@ -1,0 +1,76 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Petstore example
+  license:
+    name: MIT
+servers:
+  - url: https://127.0.0.1:8000
+paths:
+  /pets:
+    post:
+      summary: Create a pet
+      operationId: get_pets
+      tags:
+        - pets
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
+            example:
+              animal_type: cat
+              name: Mr. Whiskers
+      responses:
+        '400':
+          description: 1- Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                code: 400 
+                message: Unexpected error
+        '200':
+          description: 2- success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pet"
+              example:
+                id: 1
+                animal_type: cat
+                name: Mr. Whiskers
+components:
+  schemas:
+    Pet:
+      type: object
+      required:
+        - name
+        - animal_type
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        animal_type:
+          type: string
+          enum:
+              - cat
+              - dog
+    Pets:
+      type: array
+      items:
+        $ref: "#/components/schemas/Pet"
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
