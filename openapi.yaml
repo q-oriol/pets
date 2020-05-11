@@ -43,7 +43,7 @@ paths:
                 message: Unexpected error
                 
     get:
-      summary: retrieve a pet
+      summary: Retrieve a pet
       operationId: get_pets
       tags:
         - pets
