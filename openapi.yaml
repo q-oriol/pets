@@ -79,15 +79,18 @@ components:
         - animal_type
       properties:
         id:
+          example: 1
           type: integer
           format: int32
         name:
+          example: Name
           type: string
         animal_type:
           type: string
           enum:
               - cat
               - dog
+          example: cat
     Pets:
       type: array
       items:
