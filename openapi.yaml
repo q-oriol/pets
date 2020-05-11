@@ -1,6 +1,6 @@
 openapi: "3.0.0"
 info:
-  version: 1.0.0
+  version: 1.1.0
   title: Petstore example
   license:
     name: MIT
@@ -10,7 +10,7 @@ paths:
   /pets:
     post:
       summary: Create a pet
-      operationId: get_pets
+      operationId: post_pets
       tags:
         - pets
       requestBody:
@@ -32,6 +32,35 @@ paths:
                 id: 1
                 animal_type: cat
                 name: Mr. Whiskers
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                code: 400 
+                message: Unexpected error
+                
+    get:
+      summary: retrieve a pet
+      operationId: get_pets
+      tags:
+        - pets
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pets"
+              example:
+               - id: 1
+                 animal_type: cat
+                 name: Mr. Whiskers
+               - id: 2
+                 animal_type: dog
+                 name: Smokey
         default:
           description: Unexpected error
           content:
