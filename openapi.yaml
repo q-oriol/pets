@@ -22,15 +22,6 @@ paths:
               animal_type: cat
               name: Mr. Whiskers
       responses:
-        '400':
-          description: 1- Unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Error"
-              example:
-                code: 400 
-                message: Unexpected error
         '200':
           description: 2- success
           content:
@@ -41,6 +32,16 @@ paths:
                 id: 1
                 animal_type: cat
                 name: Mr. Whiskers
+        '400':
+          description: 1- Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                code: 400 
+                message: Unexpected error
+        
 components:
   schemas:
     Pet:
